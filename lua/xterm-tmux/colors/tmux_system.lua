@@ -25,7 +25,7 @@ M.white   = system.color15
 M.bg = M.black
 M.bg_dark = M.black
 M.bg_gutter = M.black
-M.bg_highlight = M.silver
+M.bg_highlight = M.navy
 M.bg_popup = M.bg_dark
 M.bg_statusline = M.bg_dark
 M.bg_sidebar = M.bg
@@ -36,40 +36,42 @@ M.bg_search = M.blue
 M.fg = M.white
 M.fg_dark = M.silver
 M.fg_gutter = M.gray
-M.fg_highlight = M.gray
-M.fg_popup = M.fg_dark
+M.fg_highlight = M.olive
+M.fg_popup = M.yellow
 M.fg_statusline = M.fg_dark
-M.fg_sidebar = M.fg
+M.fg_sidebar = M.fg_dark
 M.fg_float = M.fg
 M.fg_visual = M.white
-M.fg_search = M.white
+M.fg_search = M.yellow
 
+M.directory = M.purple
 M.comment = M.gray
 M.character = M.green
-M.constant = M.blue
-M.func = M.blue
+M.constant = M.olive
+M.func = M.green
 M.identifier = M.fg --also variables
-M.keyword = M.fg
-M.operator = M.fg
+M.keyword = M.lime
+M.operator = M.silver
+M.preproc = M.maroon
 M.macro = M.red
-M.special = M.green
-M.statement = M.white
-M.string = M.lime
-M.type = M.blue
+M.special = M.fg
+M.statement = M.lime
+M.string = M.green
+M.type = M.teal
 
 M.git = {
-	add = M.green,
-	change = M.navy,
-	delete = M.maroon,
-	untracked = M.olive,
+	add = M.lime,
+	change = M.teal,
+	delete = M.red,
+	untracked = M.yellow,
 	ignore = M.gray,
 }
 
 M.diff = {
 	add = M.green,
-	change = M.navy,
-	delete = M.maroon,
-	text = M.blue,
+	change = M.blue,
+	delete = M.red,
+	text = M.aqua,
 }
 
 M.border_highlight = M.lime
@@ -78,10 +80,10 @@ M.border = M.green
 M.eof = M.gray
 M.good = M.lime
 M.error = M.red
-M.todo = M.blue
+M.todo = M.yellow
 M.warning = M.yellow
-M.info = M.navy
-M.hint = M.aqua
+M.info = M.aqua
+M.hint = M.fuchsia
 
 M.rainbow = {
 	M.blue,
