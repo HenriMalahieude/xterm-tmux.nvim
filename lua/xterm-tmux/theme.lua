@@ -1,10 +1,10 @@
 local M = {}
 
 function M.setup(opts)
-	opts = require("xterm_tmux.config").extend(opts)
+	opts = require("xterm-tmux.config").extend(opts)
 
-	local colors = require("xterm_tmux.colors").setup(opts)
-	local groups = require("xterm_tmux.groups").setup(colors, opts)
+	local colors = require("xterm-tmux.colors").setup(opts)
+	local groups = require("xterm-tmux.groups").setup(colors, opts)
 
 	--In case not default
 	if vim.g.colors_name then
@@ -12,10 +12,16 @@ function M.setup(opts)
 	end
 
 	vim.o.termguicolors = true
-	vim.g.colors_name = opts.style
+	vim.g.colors_name = "xterm-tmux-" .. opts.style
 
-	for group, hl in pairs(groups)
+	for group, hl in pairs(groups) do
 		hl = type(hl) == "string" and { link = hl } or hl
+		if hl.style ~= nil then --Apparently style is not a highlight thing
+			for k, v in pairs(hl.style) do
+				hl[k] = v
+			end
+			hl.style = nil
+		end
 		vim.api.nvim_set_hl(0, group, hl)
 	end
 
@@ -26,7 +32,6 @@ function M.setup(opts)
 	return colors, groups, opts
 end
 
----TODO: XTERM Defaults Only, add other options
 ---@param colors ColorScheme
 function M.terminal(colors)
 	vim.g.terminal_color_0 = colors.terminal.color0

@@ -1,16 +1,13 @@
 --also stolen a little from tokyonights
-local util = require("xterm_tmux.util")
-
 local M = {}
 
-M.styles = setmetatable({}, {
-	__index = function(_, style)
-		return vim.deepcopy(Util.mod("xterm_tmux.colors." .. style))
-	end,
-})
+M.styles = {
+	["tmux_system"] = require("xterm-tmux.colors.tmux_system"),
+	--NOTE: Room for more
+}
 
 function M.setup(opts)
-	opts = require("xterm_tmux.config").extend(opts)
+	opts = require("xterm-tmux.config").extend(opts)
 
 	local palette = M.styles[opts.style:gsub("%-", "_")]
 
@@ -23,7 +20,7 @@ function M.setup(opts)
 
 	opts.on_colors(palette)
 
-	return palette, opts
+	return palette
 end
 
 return M

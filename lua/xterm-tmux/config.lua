@@ -4,28 +4,33 @@ M.version = "1.0.0"
 
 M.defaults = {
 	style = "tmux-system",
-	--transparent = false, --TODO
-	--terminal_colors = false, --TODO
+	transparent = false, --TODO
+	terminal_colors = false,
 	styles = {
+
+		---NOTE: Will overwrite any setting used in this plugin (such as fg)
+		---@type vim.api.keyset.highlight
 		comments = { italic = false },
 		keywords = { italic = false },
-		functions = {},
-		variables = {},
+		functions = { italic = false },
+		variables = { italic = false },
 
-		--sidebars = "dark", --TODO
-		--floats = "dark", --TODO
+		sidebars = "dark",
+		floats = "dark",
 	},
 
 	dim_inactive = false,
-	lualine_bold = false,
+	lualine_bold = false, --TODO
 
 	---@param colors ColorScheme
 	on_colors = function(colors) end,
 
 	---@param colors ColorScheme
-	on_highlights = function(highlights, colors) end,
+	on_highlights = function(highlights, colors) end, --TODO
 
-	--cache = true, --TODO
+	plugins = {
+		all = true,
+	}
 }
 
 M.options = nil

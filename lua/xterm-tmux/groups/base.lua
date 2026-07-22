@@ -23,7 +23,7 @@ function M.get(c, opts)
     ErrorMsg                    = { fg = c.error }, -- error messages on the command line
     VertSplit                   = { fg = c.border }, -- the column separating vertically split windows
     WinSeparator                = { fg = c.border, bold = true }, -- the column separating vertically split windows
-    Folded                      = { fg = c.macro, bg = c.fg_gutter }, -- line used for closed folds
+    Folded                      = { fg = c.fg_gutter, bg = c.bg_gutter }, -- line used for closed folds
     FoldColumn                  = { bg = opts.transparent and c.none or c.bg, fg = c.comment }, -- 'foldcolumn'
     SignColumn                  = { bg = opts.transparent and c.none or c.bg, fg = c.fg_gutter }, -- column where |signs| are displayed
     SignColumnSB                = { bg = c.bg_sidebar, fg = c.fg_gutter }, -- column where |signs| are displayed
@@ -38,7 +38,7 @@ function M.get(c, opts)
     MoreMsg                     = { fg = c.info }, -- |more-prompt|
     NonText                     = { fg = c.eof }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
     Normal                      = { fg = c.fg, bg = opts.transparent and c.none or c.bg }, -- normal text
-    NormalNC                    = { fg = c.fg, bg = opts.transparent and c.none or opts.dim_inactive and c.bg_dark or c.bg }, -- normal text in non-current windows
+    NormalNC                    = { fg = c.fg_dark, bg = opts.transparent and c.none or opts.dim_inactive and c.bg_dark or c.bg }, -- normal text in non-current windows
     NormalSB                    = { fg = c.fg_sidebar, bg = c.bg_sidebar }, -- normal text in sidebar
     NormalFloat                 = { fg = c.fg_float, bg = c.bg_float }, -- Normal text in floating windows.
     FloatBorder                 = { fg = c.border_highlight, bg = c.bg_float },
@@ -51,7 +51,7 @@ function M.get(c, opts)
     PmenuThumb                  = { bg = c.fg_gutter }, -- Popup menu: Thumb of the scrollbar.
     Question                    = { fg = c.hint }, -- |hit-enter| prompt and yes/no questions
     QuickFixLine                = { bg = c.bg_visual, bold = true }, -- Current |quickfix| item in the quickfix window. Combined with |hl-CursorLine| when the cursor is there.
-    Search                      = { bg = c.bg_search, fg = c.fg }, -- Last search pattern highlighting (see 'hlsearch').  Also used for similar items that need to stand out.
+    Search                      = { bg = c.bg_search, fg = c.fg_search }, -- Last search pattern highlighting (see 'hlsearch').  Also used for similar items that need to stand out.
     IncSearch                   = { bg = c.special, fg = c.bg }, -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
     CurSearch                   =  "IncSearch",
     SpecialKey                  = { fg = c.eof }, -- Unprintable characters: text displayed differently from what it really is.  But not 'listchars' whitespace. |hl-Whitespace|
@@ -79,7 +79,7 @@ function M.get(c, opts)
     Debug                       = { fg = c.info }, --    debugging statements
     Delimiter                   =  "Special", --  character that needs attention
     Error                       = { fg = c.error }, -- (preferred) any erroneous construct
-    Function                    = { fg = c.function, style = opts.styles.functions }, -- function name (also: methods for classes)
+    Function                    = { fg = c.func, style = opts.styles.functions }, -- function name (also: methods for classes)
     Identifier                  = { fg = c.identifier, style = opts.styles.variables }, -- (preferred) any variable name
     Italic                      = { italic = true, fg = c.fg }, -- (preferred) any italic text
     Keyword                     = { fg = c.keyword, style = opts.styles.keywords }, --  any other keyword
@@ -94,7 +94,7 @@ function M.get(c, opts)
     debugBreakpoint             = { bg = c.info, fg = c.info }, -- used for breakpoint colors in terminal-debug
     debugPC                     = { bg = c.bg_sidebar }, -- used for highlighting the current line in terminal-debug
     dosIniLabel                 = "@property",
-    helpCommand                 = { bg = c.bg, fg = c. },
+    helpCommand                 = { bg = c.bg, fg = c.info },
     htmlH1                      = { fg = c.bg, bold = true },
     htmlH2                      = { fg = c.hint, bold = true },
     qfFileName                  = { fg = c.hint },

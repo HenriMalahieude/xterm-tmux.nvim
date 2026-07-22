@@ -1,4 +1,4 @@
-local system = require("xterm_system")
+local system = require("xterm-tmux.colors.xterm_system")
 
 local M = {}
 
@@ -35,20 +35,24 @@ M.bg_search = M.blue
 
 M.fg = M.white
 M.fg_dark = M.silver
-M.fg_gutter = M.silver
-M.fg_popup = M.silver
-M.fg_sidebar = M.fg_dark
-M.fg_float = M.fg_dark
+M.fg_gutter = M.gray
+M.fg_highlight = M.gray
+M.fg_popup = M.fg_dark
+M.fg_statusline = M.fg_dark
+M.fg_sidebar = M.fg
+M.fg_float = M.fg
+M.fg_visual = M.white
+M.fg_search = M.white
 
 M.comment = M.gray
 M.character = M.green
-M.constant = M.navy
-M.function = M.navy
+M.constant = M.blue
+M.func = M.blue
 M.identifier = M.fg --also variables
 M.keyword = M.fg
 M.operator = M.fg
 M.macro = M.red
-M.special = M.yellow
+M.special = M.green
 M.statement = M.white
 M.string = M.lime
 M.type = M.blue
